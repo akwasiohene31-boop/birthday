@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        p.instruction {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: pulse 2s infinite;
+        }
+
+        .hidden-message {
+            display: none;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .hidden-message.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" onclick="revealMessage()">
+        <h1 id="main-title">✨ Tap anywhere on the screen ✨</h1>
+        <p class="instruction" id="sub-instruction">Open your surprise...</p>
+        
+        <div class="hidden-message" id="birthdayMessage">
+            🎉  HEY ABBY,Happy Birthday to the most amazing girl in the world! 💖<br><br>
+            Thank you for bringing so much joy, laughter, and light into my life. I hope your day is just as beautiful and special as you are. I love you! 🥰
+        </div>
+    </div>
+
+    <script>
+        function revealMessage() {
+            const message = document.getElementById('birthdayMessage');
+            const title = document.getElementById('main-title');
+            const instruction = document.getElementById('sub-instruction');
+
+            if (!message.classList.contains('show')) {
+                title.style.display = 'none';
+                instruction.style.display = 'none';
+                message.classList.add('show');
+            }
+        }
+    </script>
+
+</body>
+</html>
